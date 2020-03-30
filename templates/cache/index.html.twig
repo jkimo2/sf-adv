@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cache{% endblock %}
+
+{% block body %}
+    <p>
+        <code>composer require knplabs/knp-markdown-bundle</code>
+    </p>
+
+    <p> CAche PSR-6/PSR-16  <> Cache Contracts</p>
+    <p>
+        L'utilisation de l'approche "Cache Contracts" est recommandée: elle nécessite moins de code passe-partout et
+        fournit une protection contre le tampon par cache.
+    </p>
+
+    {{ html | raw }}
+{% endblock %}

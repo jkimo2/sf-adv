@@ -1,0 +1,110 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ parent() }} -- Webpack Encore
+{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('app') }}
+    {{ encore_entry_link_tags('monstyle') }}
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('app') }}
+{% endblock %}
+
+{% block body %}
+
+    <button class="btn btn-primary btn-sm mb-3" id="btn1">Fermer</button>
+
+    <h3>Documentation</h3>
+    <p>
+        <a href="https://symfony.com/doc/current/frontend.html" class="doc" target="_blank">
+            Documentation
+        </a>
+    </p>
+
+    <div id="content">
+        <h3>Installation</h3>
+
+        <p>
+            <code>composer require symfony/webpack-encore-bundle</code>
+        </p>
+
+        <p>Node -> npm = Node Package Manager</p>
+        <p>Yarn identique à npm</p>
+        <p>install Yarn sur l'ordinateur (en global)</p>
+
+        <p>Dans le projet symfony on lance:<br/> <code>yarn install</code></p>
+
+        <h3>Compilation</h3>
+
+        <p>
+            <code>yarn encore dev</code><br/>
+            <code>yarn encore dev --watch</code>
+        </p>
+
+        <p>
+            JavaScript s'appuie EcmaScript<br/>
+            - dernière norme ES6<br />
+            - webpack travaille norme ES5
+        </p>
+
+        <p>
+            Webpack Encore compile et insère le résultat de la compilation (par défaut)
+            dans le répertoire <code>public/build/</code><br/>
+            Pour modifier le répertoire de la compilation webpack, il faut modifier la valeur
+            de l'option <code>.setOutputPath('path/to/directory')</code>
+        </p>
+
+        <h3>Configuration</h3>
+        <p>
+            Pour demander la compilation d'un couple de fichier (css et js), on ajoute
+            la ligne <code>.addEntry('key', 'path/to/file')</code> dans le fichier de
+            configuration <code>webpack.config.js</code>
+        </p>
+
+        <p>
+            Pour ajouter une simple entrée css, on utilise
+            <code>.addStyleEntry('key', 'path/to/file')</code> dans le fichier de
+            configuration <code>webpack.config.js</code>
+        </p>
+
+        <h3>Insertion</h3>
+
+        <p>
+            CSS ==> <code>encore_entry_link_tags('key')</code><br/>
+            JS ==> <code>encore_entry_script_tags('key')</code><br/>
+        </p>
+
+        <h3>Sass</h3>
+
+        <p>
+            Lancer <code>yarn add sass-loader@^7.0.1 node-sass --dev</code>
+            pour ajouter les dépendances (sass-loader et node-sass) dans le
+            fichier <code>packages.json</code>
+        </p>
+
+        <p>
+            Pour que notre fichier <code>style.scss</code> se compile en fichier
+            <code>style.css</code>, il faut ajouter la ligne
+            <code>.enableSassLoader()</code>
+            dans le fichier <code>webpack.config.js</code>
+        </p>
+
+        <h3>JQuery</h3>
+        <p>
+            Pour ajouter jquery , il faut l'installer avec <code>yarn add jquery</code>.<br/>
+            Ensuite importer la dépendance <code>import $ from 'jquery';</code> dans un fichier javascript
+        </p>
+
+        <h3>Bootstrap</h3>
+        <p>
+            Pour ajouter bootstrap , il faut l'installer avec <code>yarn add bootstrap</code>.<br/>
+            Importer la bibliothèque dans une fichier css à l'aide de la commande
+            <code>@import "~bootstrap/dist/css/bootstrap.min.css";</code>, ajouter le fichier dans
+            <code>webpack.config.js</code> avec <code>.addStyleEntry('bootstrap', './assets/css/bootstrap.css')</code>,
+            et enfin ajouter appeler ce fichier dans une page twig avec <code>encore_entry_link_tags('bootstrap')</code>
+        </p>
+    </div>
+{% endblock %}
