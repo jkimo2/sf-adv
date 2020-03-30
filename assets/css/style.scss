@@ -1,0 +1,11 @@
+$blue : #3254e0;
+
+a.doc {
+  text-decoration: none;
+  color : $blue;
+
+  &:hover{
+    color: lighten($blue,15%);
+    text-decoration: underline;
+  }
+}

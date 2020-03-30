@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
-        {% block stylesheets %}{% endblock %}
-    </head>
-    <body>
-        {% block body %}{% endblock %}
-        {% block javascripts %}{% endblock %}
-    </body>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Welcome ! {% endblock title %}</title>
+    {{ encore_entry_link_tags('bootstrap') }}
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<main class="container-fluid">
+    <header class="pt-5">
+        <h1>{{ block('title') }}</h1>
+        <hr/>
+    </header>
+    <nav>
+        <ul class="nav">
+            <li class="nav-item">
+                <a href="{{ path('home_index') }}" class="nav-link">Accueil</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('webpack_index') }}" class="nav-link">Webpack</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{ path('cache_index') }}" class="nav-link">Cache</a>
+            </li>
+        </ul>
+    </nav>
+    <hr />
+    {% block body %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+</main>
+</body>
 </html>
