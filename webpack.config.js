@@ -24,7 +24,7 @@ Encore
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
     .addEntry('app', './assets/js/app.js')
-    .addEntry('bootstrapjs', '~bootstrap/dist/js/bootstrap.js')
+    .addEntry('bootstrapjs', './node_modules/bootstrap/dist/js/bootstrap.js')
     .addStyleEntry('monstyle', './assets/css/style.scss')
     .addStyleEntry('bootstrap', './assets/css/import_bootstrap.css')
     //.addEntry('page1', './assets/js/page1.js')

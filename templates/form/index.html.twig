@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello FormController!{% endblock %}
+
+{% block body %}
+<h1>Liste des Posts</h1>
+
+    <a href="{{ path('form_add') }}" class="btn btn-outline-primary">Ajouter</a>
+    <br>
+    <table class="table">
+    <tr>
+        <td>ID</td>
+        <td>Title</td>
+        <td>Tags</td>
+        <td>Image</td>
+        <td>Action</td>
+    </tr>
+    {% for post in posts %}
+
+            <tr>
+                <td>{{ post.id }}</td>
+                <td>{{ post.body }}</td>
+                <td>{{ post.tags | join (', ')}}</td>
+                <td><img src="images/posts/{{ post.image }}"></td>
+                <td>
+                    <a href="{{ path('form_edit', {id : post.id}) }}">Modifier</a>
+                </td>
+            </tr>
+    {% endfor %}
+
+    </table>
+{% endblock %}
