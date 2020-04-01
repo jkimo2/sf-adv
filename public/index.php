@@ -21,7 +21,7 @@ if ($trustedHosts = $_SERVER['TRUSTED_HOSTS'] ?? $_ENV['TRUSTED_HOSTS'] ?? false
 }
 
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
-$request = Request::createFromGlobals();
+$request = Request::createFromGlobals();  //construit a partir des super globales php (GET POST FILE COOKIES..)
 $response = $kernel->handle($request);
 $response->send();
 $kernel->terminate($request, $response);

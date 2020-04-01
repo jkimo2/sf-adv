@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello EventController!{% endblock %}
+
+{% block body %}
+
+    <p>
+        Evenement défini dans le kernel
+    </p>
+
+    <ul>
+        <li>Request: Juste après la requète</li>
+        <li>Controller: Juste avant de trouver le nom du controller</li>
+        <li>Argument: avant la résolution des arguments </li>
+        <li>View: avant la résolution de la vue </li>
+        <li>Response: avant le retour de la réponse</li>
+        <li>Finish</li>
+        <li>Terminate: après l'envoi de la réponse</li>
+        <li>Exception: avant de capter une exeption</li>
+    </ul>
+
+    Hello {{ user }}<br>
+
+    Hello {{ app.request.attributes.get('default_user') }}
+
+    <a href="/toto"> redirection forcée </a>
+    <br>
+    <a href="/event-own"> event own  </a>
+{% endblock %}
