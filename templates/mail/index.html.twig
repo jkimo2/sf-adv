@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Les Mailer{% endblock %}
+
+{% block body %}
+
+    <h3> Swiftmailer</h3>
+    <p><code>composer require swiftmailer</code></p>
+    {{ form(form) }}
+
+    <h3> Mailer de symfony </h3>
+    <p><code>composer require mailer</code> // déjà installé par défaut</p>
+    <a href="{{ path('mail_mailer') }}"> GO to form</a>
+
+
+{% endblock %}

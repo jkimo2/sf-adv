@@ -3,3 +3,9 @@ twig:
     form_themes:
         - 'bootstrap_4_horizontal_layout.html.twig'
         - 'customform/custom_file_type.html.twig'
+    globals:
+        jp: Jean Pierre
+        dt: Donald Trump
+    paths:
+        '%kernel.project_dir%/public/images': images
+        '%kernel.project_dir%/public/css': css

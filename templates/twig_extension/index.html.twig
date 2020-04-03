@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TwigExtensionController{% endblock %}
+
+{% block body %}
+    <h3> Filtre </h3>
+
+    <p> Code <code>fr</code> => {{ 12345678.89 |currency('fr') }}</p>
+    <p> Code <code>fr,€</code> => {{ 12345678.89 |currency('fr', '€') }}</p>
+    <p> Code <code>de</code> => {{ 12345678.89 |currency('de') }}</p>
+    <p> Code <code>us</code> => {{ 12345678.89 |currency('us') }}</p>
+    <p> Code <code>it</code> => {{ 12345678.89 |currency('it','€') }}</p>
+    <p> Code <code>default</code> => {{ 12345678.89 |currency() }}</p>
+
+    <h3> Function </h3>
+    <p> code Function 'malade_du' : {{ malade_du('coronavirus') }}</p>
+
+    <h3>Globals</h3>
+    Hello {{ jp }} !
+    <br>
+    Hello {{ ben }} de {{ Location }}
+
+    <h3> globale de twig</h3>
+    {{ dump(app) }}
+{% endblock %}

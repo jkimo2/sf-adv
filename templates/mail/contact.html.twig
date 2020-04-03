@@ -1,0 +1,49 @@
+
+{%  apply inline_css(source('clear/mail.css')) %}
+    {#<style>
+    .body {background-color: black}
+</style>
+
+
+{%  apply inline_css %}  {# transfère le css dans les balise en inline au cas ou le client mail n'interprete pas les balises <style> ou les retire #}
+{#
+<style>
+    body {color: red}
+</style>
+#}
+
+    <div class="body">
+    <div class="container">
+        <h1>Nouveau Contact</h1>
+        <hr>
+        <div>
+            <img src="https://www.dawan.fr/images/header.jpg" class="m-auto">
+        </div>
+       {#
+        <div>
+            <img src="cid:hk-img">
+        </div>
+        #}
+
+        <div>
+            <img src="{{ email.image('@images/hk.jpg') }}"  class="m-auto">
+        </div>
+
+        <p>Vous avez un reçu un message par le formulaire de contact:</p>
+        <p>
+            Nom : {{ name }}
+            <br>
+            Email : <a href="mailto:{{ e_mail }}">{{ e_mail }}</a>
+        </p>
+        <p>
+            Message :
+            <br>
+            {{ message }}
+        </p>
+        <hr>
+        <strong>Vous pouvez lui répondre  en copiant collant son email {{ e_mail }}</strong>
+    </div>
+</div>
+
+
+{%  endapply %}
